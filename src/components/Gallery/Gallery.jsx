@@ -1,4 +1,5 @@
 import GalleryImage from "../GalleryImage/GalleryImage";
+import "./Gallery.css";
 
 const NUM_COLUMNS = 4;
 
@@ -26,7 +27,7 @@ function Gallery({ images }) {
       }
 
       columns.push(
-        <div className="column" key={`column-${i}`}>
+        <div className="gallery-column" key={`column-${i}`}>
           {galleryImages}
         </div>
       );
@@ -35,7 +36,7 @@ function Gallery({ images }) {
     return columns;
   }
 
-  return <div className="row">{generateColumns()}</div>;
+  return <div className="gallery-row">{generateColumns()}</div>;
 }
 
 export default Gallery;

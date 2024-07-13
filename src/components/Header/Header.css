@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-between;
   padding: 16px;
+  height: 34px;
 }
 
 .header h2 {
@@ -33,7 +34,7 @@
 }
 
 .navigation a:hover {
-  color: gray;
+  color: black;
 }
 
 .navigation span {
@@ -43,5 +44,6 @@
 @media screen and (max-width: 600px) {
   .header {
     display: inherit;
+    height: 60px;
   }
 }

@@ -16,6 +16,11 @@
   color: white;
   cursor: pointer;
   user-select: none;
+  transition: all 0.2s ease-in;
+}
+
+.play-button:hover {
+  color: #eeeeee;
 }
 
 .image-container {

@@ -1,49 +1,90 @@
 import { useState } from "react";
-import "./App.css";
-import { createHashRouter, RouterProvider } from "react-router-dom";
-import About from "../About/About";
-import Header from "../Header/Header";
-import Modal from "../Modal/Modal";
-import ModalContext from "../Modal/ModalContext";
-import Bookings from "../Bookings/Bookings";
-import Film from "../Film/Film";
-import VideoModal from "../VideoModal/VideoModal";
-import VideoModalContext from "../VideoModal/VideoModalContext";
-import Gallery from "../Gallery/Gallery";
-import Events from "../../assets/images/events";
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
 import Corporate from "../../assets/images/corporate";
 import Weddings from "../../assets/images/weddings";
+import About from "../About/About";
+import Film from "../Film/Film";
+import Gallery from "../Gallery/Gallery";
+import Header from "../Header/Header";
 import Landing from "../Landing/Landing";
+import Modal from "../Modal/Modal";
+import ModalContext from "../Modal/ModalContext";
+import VideoModal from "../VideoModal/VideoModal";
+import VideoModalContext from "../VideoModal/VideoModalContext";
+import "./App.css";
+import SubLanding from "../SubLanding/SubLanding";
 
 function App() {
-  const router = createHashRouter([
+  const router = createBrowserRouter([
     {
       path: "/",
-      element: <Gallery images={Weddings} />,
+      element: <Landing />,
+    },
+    {
+      path: "/weddings/gallery",
+      element: (
+        <>
+          <Header prefix="weddings" />
+          <Gallery images={Weddings} />
+        </>
+      ),
+    },
+    {
+      path: "/corporate/gallery",
+      element: (
+        <>
+          <Header prefix="corporate" />
+          <Gallery images={Corporate} />
+        </>
+      ),
     },
     {
       path: "/weddings",
-      element: <Gallery images={Weddings} />,
+      element: (
+        <>
+          <Header prefix="weddings" />
+          <SubLanding src={Weddings[7]} prefix={"weddings"} />
+        </>
+      ),
     },
     {
       path: "/corporate",
-      element: <Gallery images={Corporate} />,
-    },
-    {
-      path: "/events",
-      element: <Gallery images={Events} />,
+      element: (
+        <>
+          <Header prefix="corporate" />
+          <SubLanding src={Corporate[4]} prefix={"corporate"} />
+        </>
+      ),
     },
     {
       path: "about",
       element: <About />,
     },
     {
-      path: "film",
-      element: <Film />,
+      path: "/weddings/film",
+      element: (
+        <>
+          <Header prefix="weddings" />
+          <Film />
+        </>
+      ),
     },
     {
-      path: "bookings",
-      element: <Bookings />,
+      path: "/corporate/film",
+      element: (
+        <>
+          <Header prefix="corporate" />
+          <Film />
+        </>
+      ),
+    },
+    {
+      path: "*",
+      element: <Navigate to="/" replace />,
     },
   ]);
 
@@ -56,10 +97,7 @@ function App() {
         <ModalContext.Provider value={{ modalSrc, setModalSrc }}>
           <VideoModal />
           <Modal />
-          <Header />
-          <div style={{ marginBottom: 16 }}>
-            <RouterProvider router={router} />
-          </div>
+          <RouterProvider router={router} />
         </ModalContext.Provider>
       </VideoModalContext.Provider>
     </>

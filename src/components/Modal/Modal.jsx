@@ -16,7 +16,7 @@ function Modal() {
     >
       {modalSrc && <img className="modal-image" src={modalSrc} />}
       <div onClick={() => setModalSrc(null)} className="modal-close">
-        X
+        <span className="material-symbols-outlined modal-close">close</span>
       </div>
     </div>
   );

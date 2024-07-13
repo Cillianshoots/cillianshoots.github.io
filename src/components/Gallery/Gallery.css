@@ -1,0 +1,33 @@
+.gallery-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.gallery-column {
+  flex: calc(25% - 8px);
+  max-width: 25%;
+  padding: 0 4px;
+}
+
+.gallery-column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+@media screen and (max-width: 1200px) {
+  .gallery-column {
+    flex: calc(50% - 8px);
+    max-width: 50%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .gallery-column {
+    flex: 100%;
+    max-width: 100%;
+  }
+}

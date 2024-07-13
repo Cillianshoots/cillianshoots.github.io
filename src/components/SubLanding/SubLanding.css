@@ -1,0 +1,85 @@
+.sub-landing-container {
+  width: 100%;
+  height: calc(100% - 66px);
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sub-landing-image {
+  height: 100%;
+  width: 50%;
+  object-fit: cover;
+}
+
+.sub-landing-options {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+.sub-landing-option {
+  backdrop-filter: blur(4px);
+  font-size: 2em;
+  cursor: pointer;
+  color: #444444;
+  text-decoration: none;
+  text-align: center;
+  font-weight: 400;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+}
+
+.sub-landing-option:hover {
+  color: rgb(148, 148, 148);
+}
+
+.sub-landing-option > .material-symbols-outlined {
+  transition: all 0.2s ease-in-out;
+}
+
+.sub-landing-option:hover > .material-symbols-outlined {
+  transform: translateX(16px);
+}
+
+.sub-landing-option-gallery {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.1)
+  );
+}
+
+.sub-landing-option-film {
+  background: linear-gradient(
+    360deg,
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.1)
+  );
+}
+.sub-landing-option-book {
+  color: rgb(255, 166, 0);
+}
+
+@media screen and (max-width: 600px) {
+  .sub-landing-container {
+    height: calc(100% - 92px);
+  }
+
+  .sub-landing-image {
+    display: none;
+  }
+
+  .sub-landing-options {
+    width: 100%;
+  }
+}

@@ -22,8 +22,11 @@ function VideoModal() {
           src={`https://www.youtube.com/embed/${videoModalSrc}`}
         ></iframe>
       )}
-      <div onClick={() => setVideoModalSrc(null)} className="video-modal-close">
-        X
+      <div
+        onClick={() => setVideoModalSrc(null)}
+        className="material-symbols-outlined video-modal-close"
+      >
+        close
       </div>
     </div>
   );

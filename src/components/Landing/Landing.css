@@ -1,68 +1,143 @@
 .landing-image {
-  max-width: 100%;
+  position: absolute;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+  overflow: hidden;
+  transition: all 0.3s;
+  cursor: pointer;
+  object-position: top;
 }
-/* 
-.landing-gallery {
-  justify-content: center;
+
+.landing-container {
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.landing-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 32px;
+  gap: 8px;
+}
+
+.landing-book-now {
+  color: black;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 8px;
+  font-size: 1.5em;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.landing-book-now:hover {
+  background-color: gainsboro;
+}
+
+.landing-title {
+  font-size: 2em;
+  font-weight: 300;
+  font-style: normal;
+  color: black;
+}
+
+.landing-options {
   display: grid;
-  gap: 0.25rem;
-  grid-template-columns: repeat(6, 100px);
-
-  img {
-    aspect-ratio: 1;
-    object-fit: cover;
-    grid-column: span 2;
-    clip-path: path(
-      "M90,10 C100,0 100,0 110,10 190,90 190,90 190,90 200,100 200,100 190,110 190,110 110,190 110,190 100,200 100,200 90,190 90,190 10,110 10,110 0,100 0,100 10,90Z"
-    );
-    &:nth-of-type(4) {
-      grid-column: 2 / span 2;
-    }
-  }
-} */
-
-.landing-gallery {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   justify-content: center;
-  --size: 25%;
-  display: grid;
-  grid-template-columns: repeat(6, var(--size));
-  grid-auto-rows: var(--size);
-  margin-bottom: var(--size);
-  place-items: start center;
-  gap: 5px;
+  gap: 8px;
+  height: 80%;
+  width: 100%;
+  margin-bottom: 16px;
+}
 
-  &:has(:hover) img:not(:hover),
-  &:has(:focus) img:not(:focus) {
-    filter: brightness(0.5) contrast(0.5);
+.landing-option {
+  position: relative;
+  font-size: 2em;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.landing-option:hover .landing-image {
+  filter: blur(8px);
+}
+
+.landing-option:hover .landing-option-title {
+  color: white;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0)
+  );
+  backdrop-filter: blur(0px);
+  font-size: 1.2em;
+}
+
+.landing-option-title {
+  cursor: pointer;
+  color: black;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-weight: 200;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  transition: all 0.3s ease-in-out;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0)
+  );
+  backdrop-filter: blur(10px);
+}
+
+@media screen and (max-width: 1200px) {
+  .landing-options {
+    grid-template-columns: 1fr 1fr;
+    margin-left: 8px;
+    margin-right: 8px;
+    width: calc(100% - 16px);
   }
 
-  & img {
-    object-fit: cover;
-    width: calc(var(--size) * 2);
-    height: calc(var(--size) * 2);
-    clip-path: path(
-      "M90,10 C100,0 100,0 110,10 190,90 190,90 190,90 200,100 200,100 190,110 190,110 110,190 110,190 100,200 100,200 90,190 90,190 10,110 10,110 0,100 0,100 10,90Z"
-    );
-    transition: clip-path 0.25s, filter 0.75s;
-    grid-column: auto / span 2;
-    border-radius: 5px;
+  .landing-option.landing-option-stub {
+    display: none;
+  }
+}
 
-    &:nth-child(5n - 1) {
-      grid-column: 2 / span 2;
-    }
+@media screen and (max-width: 600px) {
+  .landing-header {
+    flex-direction: column;
+  }
 
-    &:hover,
-    &:focus {
-      clip-path: path(
-        "M0,0 C0,0 200,0 200,0 200,0 200,100 200,100 200,100 200,200 200,200 200,200 100,200 100,200 100,200 100,200 0,200 0,200 0,100 0,100 0,100 0,100 0,100Z"
-      );
-      z-index: 1;
-      transition: clip-path 0.25s, filter 0.25s;
-    }
+  .landing-options {
+    grid-template-columns: 1fr;
+    margin-bottom: 8px;
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 100%;
+  }
 
-    &:focus {
-      outline: 1px dashed black;
-      outline-offset: -5px;
-    }
+  .landing-option.landing-option-stub {
+    display: none;
+  }
+
+  .landing-title {
+    text-align: center;
+    font-size: 1.5em;
+  }
+
+  .landing-option {
+    margin-left: 8px;
+    margin-right: 8px;
+    width: calc(100% - 16px);
   }
 }

@@ -1,37 +1,10 @@
-body {
-  font-family: "Halant";
+html,
+body,
+#root {
+  font-family: "Fustat";
   font-weight: 300;
   color: dimgray;
   margin: 0;
-}
-
-.row {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.column {
-  flex: calc(25% - 8px);
-  max-width: 25%;
-  padding: 0 4px;
-}
-
-.column img {
-  margin-top: 8px;
-  vertical-align: middle;
-  width: 100%;
-}
-
-@media screen and (max-width: 1200px) {
-  .column {
-    flex: calc(50% - 8px);
-    max-width: 50%;
-  }
-}
-
-@media screen and (max-width: 800px) {
-  .column {
-    flex: 100%;
-    max-width: 100%;
-  }
+  height: 100%;
+  overflow: auto;
 }
