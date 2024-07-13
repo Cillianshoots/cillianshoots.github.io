@@ -17,7 +17,7 @@ const SubLanding = ({ src, prefix }) => {
           <span className="material-symbols-outlined">chevron_right</span>
         </a>
         <a
-          href={`/${prefix}/gallery`}
+          href={`/${prefix}/film`}
           className="sub-landing-option sub-landing-option-film"
         >
           Film
